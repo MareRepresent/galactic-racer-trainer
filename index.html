@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>STAR WARS: Galactic Racer Trainer — Unlimited Credits, Unlock All Pods</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  :root{
+    --bg-0:#070a18;
+    --bg-1:#0c1130;
+    --bg-2:#131a3d;
+    --ink:#e8ecff;
+    --muted:#9aa4c9;
+    --accent:#7c5cff;
+    --accent-2:#22d3ee;
+    --accent-3:#f472b6;
+    --card:rgba(255,255,255,.045);
+    --stroke:rgba(255,255,255,.09);
+    --radius:16px;
+  }
+  html{scroll-behavior:smooth}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:
+      radial-gradient(1200px 700px at 15% -10%, rgba(124,92,255,.28), transparent 60%),
+      radial-gradient(900px 600px at 90% 0%, rgba(34,211,238,.18), transparent 55%),
+      radial-gradient(1000px 800px at 50% 120%, rgba(244,114,182,.12), transparent 60%),
+      linear-gradient(160deg, var(--bg-0) 0%, var(--bg-1) 45%, var(--bg-2) 100%);
+    background-attachment:fixed;
+    color:var(--ink);
+    line-height:1.6;
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  .wrap{width:min(1120px,92vw);margin-inline:auto}
+
+  /* ---------- NAV ---------- */
+  .nav-outer{
+    position:sticky;top:0;z-index:100;
+    padding:14px 0;
+    backdrop-filter:blur(14px);
+    -webkit-backdrop-filter:blur(14px);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;gap:18px;
+    background:rgba(12,17,48,.55);
+    border:1px solid var(--stroke);
+    border-radius:999px;
+    padding:10px 12px 10px 20px;
+    box-shadow:0 10px 40px rgba(0,0,0,.35), inset 0 1px 0 rgba(255,255,255,.06);
+  }
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.2px;font-size:15px;white-space:nowrap}
+  .brand .logo{
+    width:26px;height:26px;border-radius:8px;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--accent),var(--accent-2));
+    font-size:14px;box-shadow:0 0 18px rgba(124,92,255,.6);
+  }
+  .brand span.g{background:linear-gradient(90deg,#fff,#a5b4fc);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .nav-links{display:flex;gap:26px;align-items:center}
+  .nav-links a{
+    color:var(--muted);text-decoration:none;font-size:14px;font-weight:500;
+    transition:color .2s ease;position:relative;
+  }
+  .nav-links a:hover{color:#fff}
+  .nav-links a::after{
+    content:"";position:absolute;left:0;right:100%;bottom:-6px;height:2px;border-radius:2px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:right .25s ease;
+  }
+  .nav-links a:hover::after{right:0}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:9px;
+    font-weight:700;font-size:14px;text-decoration:none;border-radius:999px;
+    padding:11px 20px;border:1px solid transparent;cursor:pointer;
+    transition:transform .18s ease,box-shadow .25s ease,background .25s ease,border-color .25s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--accent) 0%,#5b6cff 55%,var(--accent-2) 130%);
+    color:#fff;box-shadow:0 8px 26px rgba(124,92,255,.45);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 12px 34px rgba(124,92,255,.6)}
+  .btn-ghost{
+    background:rgba(255,255,255,.05);color:var(--ink);border-color:var(--stroke);
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,.1);transform:translateY(-2px)}
+  .nav .btn{padding:9px 18px}
+
+  /* ---------- HERO ---------- */
+  .hero{padding:84px 0 60px;text-align:center;position:relative}
+  .badge{
+    display:inline-flex;align-items:center;gap:9px;
+    font-size:12.5px;font-weight:600;letter-spacing:.4px;text-transform:uppercase;
+    color:#c7d2fe;background:rgba(124,92,255,.12);
+    border:1px solid rgba(124,92,255,.35);
+    border-radius:999px;padding:7px 15px;
+    box-shadow:0 0 24px rgba(124,92,255,.18) inset;
+  }
+  .badge .dot{width:7px;height:7px;border-radius:50%;background:var(--accent-2);box-shadow:0 0 10px var(--accent-2)}
+  h1{
+    margin:22px auto 18px;max-width:900px;
+    font-size:clamp(2.1rem,5.6vw,4.1rem);
+    line-height:1.08;letter-spacing:-1.5px;font-weight:900;
+  }
+  h1 .grad{
+    background:linear-gradient(100deg,#a78bfa 0%,#818cf8 30%,#22d3ee 65%,#f472b6 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+    filter:drop-shadow(0 4px 26px rgba(124,92,255,.35));
+  }
+  .hero p.lead{
+    max-width:640px;margin:0 auto 34px;color:var(--muted);
+    font-size:clamp(1rem,1.6vw,1.13rem);
+  }
+  .hero-actions{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:52px}
+  .hero-actions .btn{padding:15px 30px;font-size:15px;border-radius:14px}
+  .hero-actions .btn-primary{box-shadow:0 14px 40px rgba(124,92,255,.5)}
+  .stats{
+    display:flex;gap:14px;flex-wrap:wrap;justify-content:center;
+  }
+  .chip{
+    background:var(--card);border:1px solid var(--stroke);border-radius:14px;
+    padding:14px 22px;min-width:150px;text-align:center;
+    backdrop-filter:blur(8px);
+    transition:transform .2s ease,border-color .2s ease;
+  }
+  .chip:hover{transform:translateY(-3px);border-color:rgba(124,92,255,.45)}
+  .chip .v{display:block;font-size:17px;font-weight:800;color:#fff;letter-spacing:.2px}
+  .chip .k{display:block;font-size:11.5px;text-transform:uppercase;letter-spacing:.9px;color:var(--muted);margin-top:3px}
+
+  /* ---------- SECTION SHELL ---------- */
+  section{padding:76px 0}
+  .sec-head{text-align:center;max-width:640px;margin:0 auto 52px}
+  .sec-kicker{
+    font-size:12px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    color:var(--accent-2);margin-bottom:12px;
+  }
+  .sec-head h2{font-size:clamp(1.6rem,3.4vw,2.5rem);letter-spacing:-.8px;line-height:1.15;margin-bottom:12px}
+  .sec-head p{color:var(--muted);font-size:.98rem}
+
+  /* ---------- FEATURES ---------- */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .card{
+    position:relative;background:var(--card);border:1px solid var(--stroke);
+    border-radius:var(--radius);padding:28px 24px 26px;
+    overflow:hidden;
+    transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease;
+    backdrop-filter:blur(8px);
+  }
+  .card::before{
+    content:"";position:absolute;top:0;left:0;right:0;height:3px;
+    background:linear-gradient(90deg,var(--accent),var(--accent-2),var(--accent-3));
+    opacity:.85;
+  }
+  .card:hover{
+    transform:translateY(-7px);
+    border-color:rgba(124,92,255,.5);
+    box-shadow:0 22px 48px rgba(0,0,0,.45),0 0 0 1px rgba(124,92,255,.18);
+  }
+  .card .ico{
+    width:48px;height:48px;border-radius:13px;display:grid;place-items:center;
+    font-size:23px;margin-bottom:18px;
+    background:linear-gradient(135deg,rgba(124,92,255,.22),rgba(34,211,238,.14));
+    border:1px solid rgba(124,92,255,.28);
+  }
+  .card h3{font-size:1.06rem;margin-bottom:9px;letter-spacing:-.2px}
+  .card p{color:var(--muted);font-size:.9rem;line-height:1.62}
+
+  /* ---------- HOW IT WORKS ---------- */
+  .steps{position:relative;max-width:720px;margin:0 auto;padding-left:8px}
+  .steps::before{
+    content:"";position:absolute;left:31px;top:14px;bottom:14px;width:2px;
+    background:linear-gradient(180deg,var(--accent),var(--accent-2),var(--accent-3));
+    border-radius:2px;opacity:.7;
+  }
+  .step{position:relative;padding:0 0 42px 84px}
+  .step:last-child{padding-bottom:0}
+  .step .num{
+    position:absolute;left:0;top:0;width:64px;height:64px;border-radius:50%;
+    display:grid;place-items:center;font-size:19px;font-weight:900;
+    background:linear-gradient(135deg,#1a2350,#0e1430);
+    border:1px solid rgba(124,92,255,.5);
+    color:#c7d2fe;
+    box-shadow:0 0 0 6px rgba(7,10,24,.9),0 0 30px rgba(124,92,255,.35);
+  }
+  .step h3{font-size:1.12rem;margin-bottom:7px;letter-spacing:-.2px}
+  .step p{color:var(--muted);font-size:.93rem;max-width:520px}
+
+  /* ---------- FAQ ---------- */
+  .faq{max-width:780px;margin:0 auto;display:flex;flex-direction:column;gap:14px}
+  details{
+    background:var(--card);border:1px solid var(--stroke);border-radius:14px;
+    overflow:hidden;transition:border-color .25s ease,background .25s ease;
+  }
+  details[open]{border-color:rgba(124,92,255,.45);background:rgba(124,92,255,.06)}
+  summary{
+    list-style:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;
+    gap:18px;padding:19px 22px;font-weight:600;font-size:.98rem;color:var(--ink);
+    user-select:none;
+  }
+  summary::-webkit-details-marker{display:none}
+  summary .plus{
+    flex:0 0 auto;width:26px;height:26px;border-radius:8px;
+    display:grid;place-items:center;
+    background:rgba(124,92,255,.16);border:1px solid rgba(124,92,255,.3);
+    color:#c7d2fe;font-size:16px;font-weight:400;line-height:1;
+    transition:transform .3s ease,background .3s ease;
+  }
+  details[open] summary .plus{transform:rotate(45deg);background:rgba(34,211,238,.18);border-color:rgba(34,211,238,.4);color:#a5f3fc}
+  details .ans{padding:0 22px 20px;color:var(--muted);font-size:.9rem;line-height:1.68;max-width:640px}
+
+  /* ---------- CTA BANNER ---------- */
+  .cta-banner{
+    position:relative;overflow:hidden;text-align:center;
+    border-radius:26px;border:1px solid rgba(124,92,255,.32);
+    background:linear-gradient(160deg,rgba(124,92,255,.16),rgba(34,211,238,.08) 55%,rgba(244,114,182,.1));
+    padding:64px 28px;
+    box-shadow:0 30px 80px rgba(0,0,0,.5), inset 0 1px 0 rgba(255,255,255,.08);
+  }
+  .cta-banner::before{
+    content:"";position:absolute;left:50%;top:-40%;width:720px;height:720px;
+    transform:translateX(-50%);
+    background:radial-gradient(circle,rgba(124,92,255,.45),transparent 62%);
+    pointer-events:none;filter:blur(10px);
+  }
+  .cta-banner::after{
+    content:"";position:absolute;right:-10%;bottom:-55%;width:520px;height:520px;
+    background:radial-gradient(circle,rgba(34,211,238,.28),transparent 62%);
+    pointer-events:none;
+  }
+  .cta-banner h2{position:relative;font-size:clamp(1.55rem,3.6vw,2.6rem);letter-spacing:-1px;line-height:1.12;margin-bottom:14px}
+  .cta-banner p{position:relative;color:#b9c2e6;max-width:520px;margin:0 auto 30px;font-size:.98rem}
+  .cta-banner .btn{position:relative;padding:16px 34px;font-size:15px;border-radius:14px}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    border-top:1px solid var(--stroke);
+    padding:34px 0 44px;
+    margin-top:40px;
+  }
+  .foot{
+    display:flex;align-items:center;justify-content:space-between;gap:18px;flex-wrap:wrap;
+    color:var(--muted);font-size:13px;
+  }
+  .foot a{color:#c7d2fe;text-decoration:none;font-weight:600;display:inline-flex;align-items:center;gap:7px;transition:color .2s}
+  .foot a:hover{color:#fff}
+  .foot .sep{opacity:.35;margin:0 8px}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:900px){
+    .grid{grid-template-columns:repeat(2,1fr)}
+  }
+  @media (max-width:640px){
+    .nav-links{display:none}
+    .nav{padding:9px 10px 9px 14px}
+    .brand{font-size:13.5px}
+    .nav .btn{padding:8px 14px;font-size:13px}
+    .hero{padding:56px 0 44px}
+    h1{letter-spacing:-.8px}
+    .hero-actions .btn{width:100%;max-width:320px}
+    .grid{grid-template-columns:1fr}
+    section{padding:56px 0}
+    .steps{padding-left:0}
+    .steps::before{left:26px}
+    .step{padding-left:70px}
+    .step .num{width:54px;height:54px;font-size:16px}
+    .chip{flex:1 1 130px;min-width:0;padding:12px 14px}
+    .cta-banner{padding:48px 20px;border-radius:20px}
+    .foot{flex-direction:column;text-align:center;justify-content:center}
+  }
+</style>
+</head>
+<body>
+
+<div class="nav-outer">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="brand" href="#top" style="text-decoration:none;color:inherit">
+        <span class="logo">🚀</span>
+        <span class="g">Galactic Racer Trainer</span>
+      </a>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <a class="btn btn-primary" href="https://gitscore.cc" target="_blank" rel="noopener">Download</a>
+    </nav>
+  </div>
+</div>
+
+<main id="top">
+  <section class="hero">
+    <div class="wrap">
+      <span class="badge"><span class="dot"></span>STAR WARS: Galactic Racer Trainer</span>
+      <h1>Dominate the Podracing Circuit with <span class="grad">Unlimited Credits &amp; God Mode</span></h1>
+      <p class="lead">
+        A lightweight, open-source Windows trainer for STAR WARS: Galactic Racer. Unlock every pod,
+        stack unlimited credits, freeze your boost cooldown, and race with god-mode protection —
+        all from a single clean overlay.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="https://gitscore.cc" target="_blank" rel="noopener">⬇ Download for Windows</a>
+        <a class="btn btn-ghost" href="https://gitscore.cc" target="_blank" rel="noopener">★ View on GitHub</a>
+      </div>
+      <div class="stats">
+        <div class="chip"><span class="v">128,400+</span><span class="k">Downloads</span></div>
+        <div class="chip"><span class="v">v2.4.1</span><span class="k">Latest Version</span></div>
+        <div class="chip"><span class="v">Windows 10 / 11</span><span class="k">Platform</span></div>
+        <div class="chip"><span class="v">Free &amp; Open Source</span><span class="k">License</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="features">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">Features</div>
+        <h2>Everything you need to master the track</h2>
+        <p>Six focused cheats engineered for STAR WARS: Galactic Racer — toggle each one independently from the trainer overlay.</p>
+      </div>
+      <div class="grid">
+        <article class="card">
+          <div class="ico">💰</div>
+          <h3>Unlimited Credits</h3>
+          <p>Instantly top up your credit balance to buy upgrades, parts, and paint jobs without grinding another race. Adjustable in real time.</p>
+        </article>
+        <article class="card">
+          <div class="ico">🏎️</div>
+          <h3>Unlock All Pods</h3>
+          <p>Reveal and unlock every podracer in the garage — including locked prototype and legendary builds — with a single click.</p>
+        </article>
+        <article class="card">
+          <div class="ico">⚡</div>
+          <h3>Speed Hack</h3>
+          <p>Fine-tune your top speed and acceleration with a slider. Dial in a subtle edge or go full throttle for time-trial runs.</p>
+        </article>
+        <article class="card">
+          <div class="ico">🔥</div>
+          <h3>Instant Boost Cooldown</h3>
+          <p>Eliminate boost wait times so your thrusters are always ready. Chain boosts through corners and leave the pack behind.</p>
+        </article>
+        <article class="card">
+          <div class="ico">🛡️</div>
+          <h3>God-Mode Racer</h3>
+          <p>Your pod ignores collision damage and track hazards. Practice risky lines or survive the tightest canyon sections unharmed.</p>
+        </article>
+        <article class="card">
+          <div class="ico">🖥️</div>
+          <h3>Clean Overlay UI</h3>
+          <p>A minimal, always-on-top control panel with hotkey bindings and live memory status. No installers, no background bloat.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="how">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">How it works</div>
+        <h2>Racing with cheats in three steps</h2>
+        <p>No complicated setup — the trainer attaches to the game process and stays out of your way.</p>
+      </div>
+      <div class="steps">
+        <div class="step">
+          <div class="num">1</div>
+          <h3>Download &amp; extract</h3>
+          <p>Grab the latest build from the download button and extract the archive to any folder. The trainer is a single portable executable — nothing is installed system-wide.</p>
+        </div>
+        <div class="step">
+          <div class="num">2</div>
+          <h3>Launch the game, then the trainer</h3>
+          <p>Start STAR WARS: Galactic Racer and load into the main menu. Run the trainer as administrator and let it auto-detect the running game process.</p>
+        </div>
+        <div class="step">
+          <div class="num">3</div>
+          <h3>Toggle your cheats</h3>
+          <p>Use the overlay or hotkeys to enable unlimited credits, unlock all pods, speed hack, instant boost cooldown, and god mode. Changes apply instantly in-game.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="sec-kicker">FAQ</div>
+        <h2>Frequently asked questions</h2>
+        <p>Everything you should know before booting up the trainer.</p>
+      </div>
+      <div class="faq">
+        <details>
+          <summary>Is the trainer free and open source?<span class="plus">+</span></summary>
+          <div class="ans">Yes. Galactic Racer Trainer is completely free and the source code is publicly available. You can inspect exactly what it does, report issues, or contribute improvements through the GitHub repository linked on this page.</div>
+        </details>
+        <details>
+          <summary>Will it work on Windows 10 and Windows 11?<span class="plus">+</span></summary>
+          <div class="ans">The trainer is built for 64-bit Windows 10 and Windows 11. It requires the game to be running in the same session, so launch the game first, then run the trainer as administrator for the process attachment to succeed.</div>
+        </details>
+        <details>
+          <summary>Do the cheats persist after I restart the game?<span class="plus">+</span></summary>
+          <div class="ans">Unlocked pods and credits are stored in the game's save data, so they persist. Live toggles like speed hack, instant boost cooldown, and god mode are applied to memory and reset when you close the game — just re-enable them next session.</div>
+        </details>
+        <details>
+          <summary>Is it safe to use, and can I get banned?<span class="plus">+</span></summary>
+          <div class="ans">The trainer is designed for single-player and offline use. It does not modify game files or phone home. As with any memory-editing tool, use it only in offline modes — using it in online or competitive sessions may violate the game's terms of service.</div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <div class="cta-banner">

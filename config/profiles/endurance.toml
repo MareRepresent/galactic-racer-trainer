@@ -1,0 +1,12 @@
+profile = "endurance"
+target_process = "GalacticRacer.exe"
+enabled_features = ["infinite_boost", "esp_overlay"]
+
+[overlay]
+enabled = true
+opacity = 0.6
+font_scale = 0.9
+
+[offsets]
+base_speed = 480.0
+credit_target = 250000

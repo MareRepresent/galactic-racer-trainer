@@ -1,0 +1,22 @@
+profile = "default"
+target_process = "GalacticRacer.exe"
+enabled_features = ["infinite_boost", "speed_hack", "esp_overlay"]
+
+[overlay]
+enabled = true
+opacity = 0.85
+hotkey_toggle = "F8"
+font_scale = 1.0
+
+[pointers]
+boost_meter = 0x00B2F410
+velocity = 0x00B2F430
+credits = 0x00C1A008
+racer_list = 0x00C1A120
+
+[offsets]
+boost_chain = [0x18, 0x2C]
+velocity_chain = [0x10, 0x44]
+base_speed = 320.0
+credit_target = 999999
+racer_chain = [0x20, 0x8]
